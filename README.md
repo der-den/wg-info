@@ -1,3 +1,9 @@
+# wg-info-Nyr
+
+Customized version working with the wireguard installation script from Nyr (https://github.com/Nyr/wireguard-install)
+
+* add page refresh with 120sec to html page 
+
 # wg-info
 Better wireguard status script
 
