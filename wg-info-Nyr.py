@@ -16,6 +16,16 @@ if 'html' in sys.argv:
 	yellowbldfmt = '<span style="color: orange; font-weight: bold;">'
 	bldfmt = '<span style="font-weight: bold;">'
 	endfmt = '</span>'
+elif 'htmlpage' in sys.argv:	
+	output = 'html'
+	redfmt = '<span style="color: red;">'
+	redbldfmt = '<span style="color: red; font-weight: bold;">'
+	greenfmt = '<span style="color: green;">'
+	greenbldfmt = '<span style="color: green; font-weight: bold;">'
+	yellowfmt = '<span style="color: orange;">'
+	yellowbldfmt = '<span style="color: orange; font-weight: bold;">'
+	bldfmt = '<span style="font-weight: bold;">'
+	endfmt = '</span>'     
 elif sys.stdout.isatty() or 'tty' in sys.argv:
 	output = 'tty'
 	redfmt = '\033[0;31m'
@@ -128,12 +138,16 @@ if 'ping' in sys.argv:
 	for th in threads:
 		th.join()
 
+if output == 'htmlpage':
+	print('<html><head><title>Wireguard Statistics</title><meta http-equiv="refresh" content="120" /></head><body><pre>')
 if output == 'html':
-	print('<html><head><title>Wireguard Statistics</title><meta http-equiv="refresh" content="120" /></head><body>')
 	print('<pre>')
 for interface, has_more in lookahead(interfaces):
 	show_info(interface)
 	if has_more:
 		print("\n")
 if output == 'html':
-	print('</pre></body></html>')
+	print('</pre>')
+
+if output == 'htmlpage':
+        print('</pre></body></html>')
