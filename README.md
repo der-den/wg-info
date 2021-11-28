@@ -2,7 +2,7 @@
 
 Customized version working with the wireguard installation script from Nyr (https://github.com/Nyr/wireguard-install)
 
-* add page refresh with 120sec to html page 
+* add option "htmlpage" for a standalone webpage with auto-reload all 120sec
 
 # wg-info
 Better wireguard status script
